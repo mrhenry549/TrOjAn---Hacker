@@ -5,11 +5,14 @@
  */
 package trojan.hacker;
 
+import java.awt.Insets;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.HBoxBuilder;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -21,9 +24,10 @@ public class TrOjAnHacker extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
+        
+        Button btn1 = new Button();
+        btn1.setText("Say 'Hello World'");
+        btn1.setOnAction(new EventHandler<ActionEvent>() {
             
             @Override
             public void handle(ActionEvent event) {
@@ -31,12 +35,29 @@ public class TrOjAnHacker extends Application {
             }
         });
         
+        Button btn2 = new Button();
+        btn2.setText("Say 'It's me!");
+        btn2.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("It's me!");
+            }
+        });
+        
+        HBox hBox = HBoxBuilder.create().spacing(30.0)
+                .padding(new Insets(5, 5, 5, 5))
+                .children(btn1, btn2)
+                .build();
+
+        hBox.setSpacing(30.0); //In your case
+        
         StackPane root = new StackPane();
-        root.getChildren().add(btn);
+        root.getChildren().add(btn1);
         
-        Scene scene = new Scene(root, 300, 250);
+        Scene scene = new Scene(hBox, 300, 250);
         
-        primaryStage.setTitle("Hello World!");
+        primaryStage.setTitle("TrOjAn");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

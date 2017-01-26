@@ -8,7 +8,7 @@ import java.net.Socket;
 
 public class ClienteChat {
 
-    private final int PORTO = 9983;
+    private final int PORTO = 80;
     private final String IP = "192.168.250.250";
 
     public ClienteChat() {

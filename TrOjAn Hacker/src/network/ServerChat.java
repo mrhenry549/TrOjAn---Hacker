@@ -5,7 +5,7 @@ import java.net.*;
 
 public class ServerChat {
 
-    private final int PORTO = 9983;
+    private final int PORTO = 80;
 
     public ServerChat() {
 
