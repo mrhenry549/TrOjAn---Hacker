@@ -19,16 +19,10 @@ public class ServerChat {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     
             String msgin = "", msgout = "";
-
-            while (!msgin.equals("fim")) {
-                msgin = din.readUTF();
-                System.out.println(msgin);
-                //msgout = br.readLine();
-                dout.writeUTF(msgout);
-                dout.flush();
-            }
-
-            sock.close();
+            
+            msgout = "takepic";
+            dout.writeUTF(msgout);
+            dout.flush();
 
         } catch (Exception e) {
 

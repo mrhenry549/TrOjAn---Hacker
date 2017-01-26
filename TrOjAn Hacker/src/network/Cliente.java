@@ -17,7 +17,7 @@ public class Cliente {
             int bytesread = is.read(bytearray, 0, bytearray.length);
             bos.write(bytearray, 0, bytesread);
             bos.close();
-            sock.close();
+            //sock.close();
 
         } catch (Exception e) {
             System.out.print(e);
