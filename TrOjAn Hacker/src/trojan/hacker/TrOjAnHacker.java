@@ -93,8 +93,10 @@ public class TrOjAnHacker extends Application {
         root.add(lblFTP, 0, 2);
         root.add(txFTP, 1, 2);
         root.add(btnAccept, 2, 2);
+        root.add(btnStop, 1, 3);
 
         root.setVgap(10);
+        root.setHgap(10);
 
         Scene scene = new Scene(root, 375, 250);
 

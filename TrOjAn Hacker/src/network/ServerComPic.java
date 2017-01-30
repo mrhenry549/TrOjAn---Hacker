@@ -15,8 +15,8 @@ public class ServerComPic {
             Socket sock = ssoc.accept();
 
             DataOutputStream dout = new DataOutputStream(sock.getOutputStream());
-            String msgout = TrOjAnHacker.ftpNum;
-            dout.writeUTF(msgout);
+            //String msgout = TrOjAnHacker.ftpNum;
+            //dout.writeUTF(msgout);
             dout.flush();
 
         } catch (Exception e) {
