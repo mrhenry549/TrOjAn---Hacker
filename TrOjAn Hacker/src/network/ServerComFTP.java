@@ -3,24 +3,19 @@ package network;
 import java.io.*;
 import java.net.*;
 
-public class ServerChat {
+public class ServerComFTP {
 
     private final int PORTO = 80;
 
-    public ServerChat() {
+    public ServerComFTP() {
 
         try {
             ServerSocket ssoc = new ServerSocket(PORTO);
             Socket sock = ssoc.accept();
 
-            DataInputStream din = new DataInputStream(sock.getInputStream());
             DataOutputStream dout = new DataOutputStream(sock.getOutputStream());
 
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    
-            String msgin = "", msgout = "";
-            
-            msgout = "takepic";
+            String msgout = "";
             dout.writeUTF(msgout);
             dout.flush();
 
