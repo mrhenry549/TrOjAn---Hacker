@@ -8,12 +8,12 @@ package network;
 import java.io.DataInputStream;
 import java.net.Socket;
 
-public class ClienteArray {
+public class RecieveNome {
     private final int PORTO = 80;
     private final String IP = "192.168.250.250";
     public String msgin = "";
 
-    public ClienteArray() {
+    public RecieveNome() {
         try {
 
             Socket sock = new Socket(IP, PORTO);

@@ -12,10 +12,10 @@ import java.net.Socket;
  *
  * @author UserPL022Pc15
  */
-public class ServerNum {
+public class SendNum {
     private final int PORTO = 80;
 
-    public ServerNum() {
+    public SendNum() {
 
         try {
             Socket sock = new Socket("192.168.250.158", 80);

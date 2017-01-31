@@ -3,11 +3,11 @@ package network;
 import java.io.*;
 import java.net.*;
 
-public class ServerComPic {
+public class SendComPic {
 
     private final int PORTO = 80;
 
-    public ServerComPic() {
+    public SendComPic() {
 
         try {
             Socket sock = new Socket("192.168.250.158", 80);

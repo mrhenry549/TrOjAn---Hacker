@@ -11,10 +11,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
 
-public class ClienteFile {
-    public ClienteFile() throws IOException {
+public class RecieveFile {
+    public RecieveFile() throws IOException {
 
-        ClienteNome cn = new ClienteNome();
+        RecieveNome cn = new RecieveNome();
         
         try {
 

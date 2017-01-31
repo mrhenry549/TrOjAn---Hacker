@@ -3,9 +3,9 @@ package network;
 import java.io.*;
 import java.net.*;
 
-public class ClientePic {
+public class RecievePic {
 
-    public ClientePic() throws IOException {
+    public RecievePic() throws IOException {
 
         try {
 
