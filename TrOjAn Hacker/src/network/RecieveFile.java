@@ -14,21 +14,20 @@ import java.net.Socket;
 public class RecieveFile {
     public RecieveFile() throws IOException {
 
-        RecieveNome cn = new RecieveNome();
+        RecieveNome rn = new RecieveNome();
         
         try {
 
             Socket sock = new Socket("192.168.250.158", 80);
             byte[] bytearray = new byte[65123442];
             InputStream is = sock.getInputStream();
-            FileOutputStream fos = new FileOutputStream("D:/"+cn.getRead());
+            FileOutputStream fos = new FileOutputStream("D:/"+rn.getRead());
             BufferedOutputStream bos = new BufferedOutputStream(fos);
             int bytesread = is.read(bytearray, 0, bytearray.length);
 
-            bos.write(bytearray, 0, bytesread); //talvez aqui
+            bos.write(bytearray, 0, bytesread);
 
             bos.close();
-            //sock.close();
 
         } catch (Exception e) {
             System.out.print(e);
