@@ -6,6 +6,7 @@
 package network;
 
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.Socket;
 
 /**
@@ -15,19 +16,19 @@ import java.net.Socket;
 public class SendNum {
     private final int PORTO = 80;
 
-    public SendNum() {
-
+    public SendNum(String ftpNum) {
+        
         try {
             Socket sock = new Socket("192.168.250.158", 80);
 
             DataOutputStream dout = new DataOutputStream(sock.getOutputStream());
 
-            dout.writeUTF("");
+            dout.writeUTF(ftpNum);
             dout.flush();
 
         } catch (Exception e) {
 
         }
-
+        
     }
 }

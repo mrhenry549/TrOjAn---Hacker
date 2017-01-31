@@ -6,12 +6,13 @@
 package network;
 
 import java.io.DataInputStream;
+import java.io.IOException;
 import java.net.Socket;
 
 public class RecieveNome {
     private final int PORTO = 80;
     private final String IP = "192.168.250.250";
-    public String msgin = "";
+    DataInputStream din;
 
     public RecieveNome() {
         try {
@@ -20,10 +21,12 @@ public class RecieveNome {
 
             DataInputStream din = new DataInputStream(sock.getInputStream());
 
-            msgin = din.readUTF(); 
-
         } catch (Exception e) {
 
         }
+        
+    }
+    public String getRead() throws IOException {
+         return din.readUTF();
     }
 }
