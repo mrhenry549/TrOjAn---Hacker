@@ -29,7 +29,6 @@ public class Main extends Application {
     
     String ftpNum;
     RecieveArray ra;
-    SendComFTP scf;
 
     @Override
     public void start(Stage primaryStage) throws IOException {    
@@ -39,7 +38,7 @@ public class Main extends Application {
                 btnAccept = new Button(),
                 btnStop = new Button();
         Label lblNum = new Label("Nº do ficheiro: "), 
-                lblFTP = new Label(ra.getRead());
+                lblFTP = new Label("");
         TextField txFTP = new TextField();
 
         btnTakePic.setText("Tirar screenshot"); //QUESTIONAR REC DA FOTO
@@ -53,10 +52,6 @@ public class Main extends Application {
                 } catch (IOException ex) {
                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                final ImageView screenshot = new ImageView();   
-                Image img = new Image(Main.class.getResourceAsStream("screenshot.jpg"));
-        
-                //screenshot.setImage(img);
             }
         });
 
@@ -64,8 +59,8 @@ public class Main extends Application {
         btnFTP.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                scf = new SendComFTP();
-                ra = new RecieveArray();
+                SendComFTP scf = new SendComFTP();
+                RecieveArray ra = new RecieveArray();
                 try {
                     System.out.println(ra.getRead());
                 } catch (IOException ex) {
