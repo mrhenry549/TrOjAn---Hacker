@@ -46,14 +46,12 @@ public class Main extends Application {
         imv.setFitHeight(200);
         imv.setFitWidth(300);
 
-        btnTakePic.setText("Tirar screenshot"); //QUESTIONAR REC DA FOTO
+        btnTakePic.setText("Tirar screenshot"); //FEITO
         btnTakePic.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("Tirando Screenshot...");
-                SendComPic scp = new SendComPic();
                 try {
-                    RecievePic cp = new RecievePic();
+                    RecieveScreenshot rs = new RecieveScreenshot();
                 } catch (IOException ex) {
                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -64,7 +62,6 @@ public class Main extends Application {
         btnFTP.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                SendComFTP scf = new SendComFTP();
                 RecieveArray ra = new RecieveArray();
                 lblFTP.setText(ra.array);
             }

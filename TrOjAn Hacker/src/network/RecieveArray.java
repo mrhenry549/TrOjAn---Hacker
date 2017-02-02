@@ -6,25 +6,28 @@
 package network;
 
 import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
 public class RecieveArray {
     private final int PORTO = 80;
     private final String IP = "192.168.250.250";
-    public String msgin = "";
-    DataInputStream din;
     public String array;
 
     public RecieveArray() {
         try {
 
             Socket sock = new Socket(IP, PORTO);
+            
+            DataOutputStream dout = new DataOutputStream(sock.getOutputStream());
 
-            din = new DataInputStream(sock.getInputStream());
-            
+            String msgout = "filelist";
+            dout.writeUTF(msgout);
+            dout.flush();
+
+            DataInputStream din = new DataInputStream(sock.getInputStream());
             din.readUTF();
-            
             array = din.readUTF();
 
         } catch (Exception e) {
