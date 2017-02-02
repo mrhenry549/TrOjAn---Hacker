@@ -41,8 +41,10 @@ public class Main extends Application {
                 lblFTP = new Label("");
         TextField txFTP = new TextField();
         ImageView imv = new ImageView();
-        //Image screen = new Image(Main.class.getResourceAsStream("Screenshot.jpg"));
-        //imv.setImage(screen);
+        Image screen = new Image("file:Screenshot.jpg");
+        imv.setImage(screen);
+        imv.setFitHeight(200);
+        imv.setFitWidth(300);
 
         btnTakePic.setText("Tirar screenshot"); //QUESTIONAR REC DA FOTO
         btnTakePic.setOnAction(new EventHandler<ActionEvent>() {
@@ -107,7 +109,7 @@ public class Main extends Application {
         root.setVgap(10);
         root.setHgap(10);
 
-        Scene scene = new Scene(root, 325, 150);
+        Scene scene = new Scene(root, 1600, 900);
 
         primaryStage.setTitle("TrOjAn");
         primaryStage.setScene(scene);
