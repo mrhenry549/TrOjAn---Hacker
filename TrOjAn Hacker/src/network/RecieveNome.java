@@ -13,6 +13,7 @@ public class RecieveNome {
     private final int PORTO = 80;
     private final String IP = "192.168.250.250";
     DataInputStream din;
+    public String nome;
 
     public RecieveNome() {
         try {
@@ -20,13 +21,14 @@ public class RecieveNome {
             Socket sock = new Socket(IP, PORTO);
 
             DataInputStream din = new DataInputStream(sock.getInputStream());
+            
+            din.readUTF();
+            
+            nome = din.readUTF();
 
         } catch (Exception e) {
 
         }
         
-    }
-    public String getRead() throws IOException {
-         return din.readUTF();
     }
 }

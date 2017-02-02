@@ -15,9 +15,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import network.*;
 
@@ -40,6 +40,9 @@ public class Main extends Application {
         Label lblNum = new Label("Nº do ficheiro: "), 
                 lblFTP = new Label("");
         TextField txFTP = new TextField();
+        ImageView imv = new ImageView();
+        //Image screen = new Image(Main.class.getResourceAsStream("Screenshot.jpg"));
+        //imv.setImage(screen);
 
         btnTakePic.setText("Tirar screenshot"); //QUESTIONAR REC DA FOTO
         btnTakePic.setOnAction(new EventHandler<ActionEvent>() {
@@ -61,11 +64,7 @@ public class Main extends Application {
             public void handle(ActionEvent event) {
                 SendComFTP scf = new SendComFTP();
                 RecieveArray ra = new RecieveArray();
-                try {
-                    System.out.println(ra.getRead());
-                } catch (IOException ex) {
-                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                lblFTP.setText(ra.array);
             }
         });
 
@@ -102,6 +101,7 @@ public class Main extends Application {
         root.add(lblNum, 0, 3);
         root.add(txFTP, 1, 3);
         root.add(btnAccept, 2, 3);
+        root.add(imv, 3, 3);
         root.add(btnStop, 1, 4);
 
         root.setVgap(10);

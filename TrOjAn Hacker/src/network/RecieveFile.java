@@ -21,7 +21,7 @@ public class RecieveFile {
             Socket sock = new Socket("192.168.250.158", 80);
             byte[] bytearray = new byte[65123442];
             InputStream is = sock.getInputStream();
-            FileOutputStream fos = new FileOutputStream("D:/"+rn.getRead());
+            FileOutputStream fos = new FileOutputStream("D:/"+rn.nome);
             BufferedOutputStream bos = new BufferedOutputStream(fos);
             int bytesread = is.read(bytearray, 0, bytearray.length);
 

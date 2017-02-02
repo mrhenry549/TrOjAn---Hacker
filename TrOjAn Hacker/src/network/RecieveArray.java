@@ -14,6 +14,7 @@ public class RecieveArray {
     private final String IP = "192.168.250.250";
     public String msgin = "";
     DataInputStream din;
+    public String array;
 
     public RecieveArray() {
         try {
@@ -21,12 +22,13 @@ public class RecieveArray {
             Socket sock = new Socket(IP, PORTO);
 
             din = new DataInputStream(sock.getInputStream());
+            
+            din.readUTF();
+            
+            array = din.readUTF();
 
         } catch (Exception e) {
 
         }
-    }
-    public String getRead() throws IOException {
-         return din.readUTF();
     }
 }
