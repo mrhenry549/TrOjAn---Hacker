@@ -15,14 +15,14 @@ import java.net.Socket;
 public class SendNum {
     private final int PORTO = 80;
 
-    public SendNum(String ftpNum) {
+    public SendNum(int ftpNum) {
         
         try {
             Socket sock = new Socket("192.168.250.158", 80);
 
             DataOutputStream dout = new DataOutputStream(sock.getOutputStream());
 
-            dout.writeUTF(ftpNum);
+            dout.write(ftpNum);
             dout.flush();
 
         } catch (Exception e) {

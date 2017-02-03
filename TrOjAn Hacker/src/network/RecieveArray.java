@@ -12,7 +12,7 @@ import java.net.Socket;
 
 public class RecieveArray {
     private final int PORTO = 80;
-    private final String IP = "192.168.250.250";
+    private final String IP = "192.168.250.158";
     public String array;
 
     public RecieveArray() {

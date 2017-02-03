@@ -43,8 +43,8 @@ public class Main extends Application {
         ImageView imv = new ImageView();
         Image screen = new Image("file:Screenshot.jpg");
         imv.setImage(screen);
-        imv.setFitHeight(200);
-        imv.setFitWidth(300);
+        imv.setFitHeight(500);
+        imv.setFitWidth(1000);
 
         btnTakePic.setText("Tirar screenshot"); //FEITO
         btnTakePic.setOnAction(new EventHandler<ActionEvent>() {
@@ -52,6 +52,7 @@ public class Main extends Application {
             public void handle(ActionEvent event) {
                 try {
                     RecieveScreenshot rs = new RecieveScreenshot();
+                    imv.setImage(screen);
                 } catch (IOException ex) {
                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -73,7 +74,7 @@ public class Main extends Application {
             public void handle(ActionEvent event) {
                 ftpNum = txFTP.getText();
                 
-                SendNum sn = new SendNum(ftpNum);
+                SendNum sn = new SendNum(Integer.parseInt(ftpNum));
                 try {
                     RecieveFile cf = new RecieveFile();
                 } catch (IOException ex) {

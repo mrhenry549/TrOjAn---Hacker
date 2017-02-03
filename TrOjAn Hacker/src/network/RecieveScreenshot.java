@@ -1,43 +1,37 @@
 package network;
 
+import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.Socket;
 
 public class RecieveScreenshot {
 
-    Socket ClientSock;
+    Socket sock;
     DataOutputStream output;
     DataInputStream input;
-    String msg = "pic";
+    byte[] bytearray = new byte[65123442];
+    int bytesread = 0;
 
     public RecieveScreenshot() throws IOException {
 
-        File fil = new File("ScreenShot.jpg");
-        try {
+            sock = new Socket("192.168.250.158", 80);
+            input = new DataInputStream(sock.getInputStream());
+            output = new DataOutputStream(sock.getOutputStream());
+            output.writeUTF("takepic");
+                byte[] bytearray = new byte[65123442];
+                InputStream is = sock.getInputStream();
+                FileOutputStream fos = new FileOutputStream("D:/screenshot.jpg");
+                BufferedOutputStream bos = new BufferedOutputStream(fos);
+                int bytesread = is.read(bytearray, 0, bytearray.length);
 
-            ClientSock = new Socket("192.168.250.121", 80);
-            input = new DataInputStream(ClientSock.getInputStream());
-            output = new DataOutputStream(ClientSock.getOutputStream());
+                bos.write(bytearray, 0, bytesread);
 
-            output.writeUTF(msg);
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
-        FileOutputStream fos = new FileOutputStream(fil);
-        int i;
-        String temp;
-        do {
-            temp = input.readUTF();
-            i = Integer.parseInt(temp);
-            if (i != -1) {
-                fos.write(i);
-            }
-        } while (i != -1);
-        fos.close();
+                bos.close();
 
     }
 
